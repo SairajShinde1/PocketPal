@@ -34,14 +34,12 @@ const userLogin = async (req, res) => {
       const isPasswordMatch = await bcrypt.compare(password, user.password);
 
       if (isPasswordMatch) {
-        console.log("User Authenticated", user);
         const token = jwt.sign(
           {
             userId: user._id,
           },
           process.env.JWT_SECRET
         );
-        console.log(token);
         res.cookie("token", token);
         return res.json({
           success: true,
