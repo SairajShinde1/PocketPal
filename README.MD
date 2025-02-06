@@ -11,7 +11,7 @@ PocketPal is a full-stack MERN-based expense tracker designed to help users mana
 ## Features
 
 - **Secure Authentication** – JWT-based authentication ensures only authorized users can modify data.
-- **Expense & Budget Management** – Users can add, edit, and track their transactions with ease.
+- **Expense & Budget Management** – Users can add, edit, delete and track their transactions with ease.
 - **Visual Insights** – Includes interactive bar charts for **Income vs. Expenses** and **Savings vs. Goal**, along with a pie chart for expense distribution.
 - **Transaction History** – Users can view and filter past expenses efficiently.
 - **Customization Options** – Allows users to set savings goals, change currency, and personalize preferences.
