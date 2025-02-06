@@ -20,23 +20,33 @@ PocketPal is a full-stack MERN-based expense tracker designed to help users mana
 ## Installation & Setup
 
 1. Clone the repository:
+   <br>
    git clone https://github.com/SairajShinde1/PocketPal.git
 
 2. Navigate to the project directory:
+   <br>
    cd pocketpal
 
 3. 🖥️ Frontend Setup:
+   <br>
    cd pocketpal-ui
+   <br>
    npm install
+   <br>
    npm start
 
 4. ⚙️ Backend Setup:
+   <br>
    cd pocketpal-server
+   <br>
    npm install
+   <br>
    npm start
 
 5. 🔑 Environment Variables (.env):
+   <br>
    MONGODBAT_URI= your_mongodb_connection_string
+   <br>
    JWT_SECRET= your_secret_key
 
 6. Open the application in your browser at `http://localhost:3000`
