@@ -1,0 +1,14 @@
+# Node modules
+**/node_modules
+
+# Ignore .env files (both frontend & backend)
+**/.env
+
+# Logs & Build files
+*.log
+dist/
+build/
+.DS_Store
+
+# Ignore yarn.lock if using npm
+yarn.lock

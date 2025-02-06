@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #1c1c1c;
+  color: white;
+}
+
+.active hr {
+  @apply block;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none; /* Hide the spin buttons */
+  margin: 0; /* Remove any default margin */
+}
+
+progress::-webkit-progress-bar {
+  background: gray-600; /* Background of the bar */
+}
