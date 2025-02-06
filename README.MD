@@ -53,7 +53,13 @@ PocketPal is a full-stack MERN-based expense tracker designed to help users mana
 
 ## Deployment
 
-- Work in Progress
+- The PocketPal Application has been successfully deployed on Render:
+  <br>
+- Frontend : https://pocketpal-hs0y.onrender.com/
+  <br>
+- Backend : https://pocketpal-backend.onrender.com/
+  <br>
+- Database: MongoDB Atlas
 
 ## Future Enhancements
 
