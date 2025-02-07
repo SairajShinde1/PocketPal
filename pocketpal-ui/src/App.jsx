@@ -65,7 +65,7 @@ const AuthHandler = () => {
 
   useEffect(() => {
     if (isFirstRender.current) {
-      isFirstRender.current = false;
+      isFirstRender.current = false; // Prevent first render execution
       return;
     }
 
@@ -74,14 +74,24 @@ const AuthHandler = () => {
     if (!token) {
       if (
         !location.pathname.startsWith("/reset-password") &&
-        location.pathname !== "/forgot-password"
+        !location.pathname.startsWith("/forgot-password")
       ) {
         navigate("/login");
       }
-    } else if (location.pathname !== "/home") {
-      navigate("/home");
+    } else {
+      // Allow navigation to authenticated routes instead of forcing /home
+      const allowedRoutes = [
+        "/home",
+        "/add-transactions",
+        "/history",
+        "/settings",
+        "/budget-management",
+      ];
+      if (!allowedRoutes.includes(location.pathname)) {
+        navigate("/home");
+      }
     }
-  }, [navigate]);
+  }, [navigate, location.pathname]); // ✅ Added `location.pathname` to update correctly
 
   return null;
 };
