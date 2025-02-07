@@ -11,6 +11,7 @@ PocketPal is a full-stack MERN-based expense tracker designed to help users mana
 ## Features
 
 - **Secure Authentication** – JWT-based authentication ensures only authorized users can modify data.
+- **Forgot Password** - Forgot Password feature with email-based password reset using JWT, Nodemailer, and bcrypt for secure authentication.
 - **Expense & Budget Management** – Users can add, edit, delete and track their transactions with ease.
 - **Visual Insights** – Includes interactive bar charts for **Income vs. Expenses** and **Savings vs. Goal**, along with a pie chart for expense distribution.
 - **Transaction History** – Users can view and filter past expenses efficiently.
@@ -61,7 +62,7 @@ PocketPal is a full-stack MERN-based expense tracker designed to help users mana
 
 ## Future Enhancements
 
-- Implement forgot-password feature.
+- Implement forgot-password feature. <b>Added **08/02/2025**</b>
 - Implement the feature to see previous year's Expense's & Savings
 - Email notifications/reminders
 

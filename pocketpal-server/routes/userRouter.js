@@ -1,6 +1,11 @@
 const express = require("express");
 const { body, validationResult } = require("express-validator");
-const { registerUser, userLogin } = require("../controllers/authController");
+const {
+  registerUser,
+  userLogin,
+  forgotPassword,
+  resetPassword,
+} = require("../controllers/authController");
 const userRouter = express.Router();
 const authenticate = require("../middlewares/authenticate");
 const {
@@ -64,5 +69,7 @@ userRouter.get("/get-goal", authenticate, getGoal);
 userRouter.post("/set-budget", authenticate, setBudget);
 userRouter.get("/get-budgets", authenticate, getBudget);
 userRouter.delete("/delete-budgets", authenticate, deleteBudget);
+userRouter.post("/forgot-password", forgotPassword);
+userRouter.post("/reset-password/:id/:token", resetPassword);
 
 module.exports = userRouter;

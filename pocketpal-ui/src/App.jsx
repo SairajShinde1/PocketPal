@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import { Route, Router, Routes, useNavigate } from "react-router-dom";
+import {
+  Route,
+  Router,
+  Routes,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 import Home from "./pages/Home";
 import AddTransaction from "./pages/AddTransaction";
 import History from "./pages/History";
@@ -11,6 +17,8 @@ import BarGraph from "./components/BarGraph";
 import BarView from "./components/BarView";
 import PieView from "./components/PieView";
 import BudgetManagement from "./pages/BudgetManagement";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 const RootRedirect = () => {
   const navigate = useNavigate();
@@ -30,6 +38,11 @@ const App = () => {
       <Routes>
         <Route path="/" element={<RootRedirect />} />
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/forgot-password" element={<ForgotPassword />}></Route>
+        <Route
+          path="/reset-password/:id/:token"
+          element={<ResetPassword />}
+        ></Route>
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
         <Route path="/add-transactions" element={<AddTransaction />} />
@@ -43,19 +56,32 @@ const App = () => {
   );
 };
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const AuthHandler = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
     const token = localStorage.getItem("token");
+
     if (!token) {
-      navigate("/login");
-    } else {
+      if (
+        !location.pathname.startsWith("/reset-password") &&
+        location.pathname !== "/forgot-password"
+      ) {
+        navigate("/login");
+      }
+    } else if (location.pathname !== "/home") {
       navigate("/home");
     }
-  }, []);
+  }, [navigate]);
 
   return null;
 };

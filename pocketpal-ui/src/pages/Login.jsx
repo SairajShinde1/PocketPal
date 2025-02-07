@@ -82,12 +82,12 @@ const Login = () => {
               placeholder="Enter your password"
               className="outline-none bg-transparent border-2 border-emerald-600 text-xl px-5 py-5 rounded-full mt-3 placeholder:text-gray-400 w-full"
             />
-            <a
-              href=""
+            <Link
+              to="/forgot-password"
               className="mx-5 mt-2 text-sm text-gray-300 hover:underline hover:font-semibold"
             >
               Forgot Password?
-            </a>
+            </Link>
           </div>
           <button
             type="submit"
