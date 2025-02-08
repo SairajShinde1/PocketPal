@@ -74,7 +74,8 @@ const AuthHandler = () => {
     if (!token) {
       if (
         !location.pathname.startsWith("/reset-password") &&
-        !location.pathname.startsWith("/forgot-password")
+        !location.pathname.startsWith("/forgot-password") &&
+        !location.pathname.startsWith("/register")
       ) {
         navigate("/login");
       }
@@ -86,6 +87,8 @@ const AuthHandler = () => {
         "/history",
         "/settings",
         "/budget-management",
+        "/bargraph",
+        "/piechart",
       ];
       if (!allowedRoutes.includes(location.pathname)) {
         navigate("/home");
