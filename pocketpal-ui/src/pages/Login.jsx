@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Register from "./Register";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -6,8 +6,8 @@ import { ToastContainer, toast } from "react-toastify";
 import { AppContext } from "../context/AppContext";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("demouser@gmail.com");
+  const [password, setPassword] = useState("demouser");
   const navigate = useNavigate();
   const { setToken } = useContext(AppContext);
 
@@ -18,6 +18,17 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    toast.info(
+      "PocketPal is deployed on a free Render plan, so the first login or action may take some time. Please be patient. Sorry for the inconvenience!",
+
+      {
+        position: "top-center",
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
+      }
+    );
 
     const BASE_URL = import.meta.env.VITE_API_URL;
     console.log(BASE_URL);
@@ -48,6 +59,19 @@ const Login = () => {
       });
     }
   };
+
+  useEffect(() => {
+    toast.info(
+      "A demo user account is provided for trial purposes. If you prefer, you can register a new account, log in, and explore the application.",
+      {
+        position: "top-center",
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
+      }
+    );
+  }, []);
 
   return (
     <div className="flex h-screen w-screen items-center justify-center px-5 sm:px-10 md:px-20">
